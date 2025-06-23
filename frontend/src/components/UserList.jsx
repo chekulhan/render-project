@@ -5,8 +5,10 @@ export default function UserList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const VITE_URL_RENDER = process.env.VITE_URL_RENDER;
+
   useEffect(() => {
-    fetch('https://render-project-boy6.onrender.com/api/v1/users/') 
+    fetch(`${VITE_URL_RENDER}/api/v1/users/`) 
       .then((res) => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
